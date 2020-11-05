@@ -1,0 +1,40 @@
+{
+	"name": "scripts",
+	"private": true,
+	"homepage": "https://github.com/Jadie-Wadie/scripts#readme",
+	"bugs": {
+		"url": "https://github.com/Jadie-Wadie/scripts/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Jadie-Wadie/scripts.git"
+	},
+	"license": "MIT",
+	"author": {
+		"name": "Jadie-Wadie"
+	},
+	"main": "src/index",
+	"scripts": {
+		"chmod": "chmod 744 $(find scripts -type f)",
+		"postinstall": "husky install",
+		"lint": "prettier -wu \"**/*\" && sort-package-json",
+		"rimraf": "rm -rf build",
+		"start": "ts-node-script src/index"
+	},
+	"dependencies": {
+		"canvas": "^2.6.1",
+		"colors": "^1.4.0",
+		"minimist": "^1.2.5",
+		"node-lifx-lan": "^0.4.3",
+		"prompts": "^2.4.0"
+	},
+	"devDependencies": {
+		"@types/minimist": "^1.2.0",
+		"@types/node": "^14.14.6",
+		"@types/prompts": "^2.0.9",
+		"prettier": "^2.1.2",
+		"sort-package-json": "^1.46.1",
+		"ts-node": "^9.0.0",
+		"typescript": "^4.0.5"
+	}
+}

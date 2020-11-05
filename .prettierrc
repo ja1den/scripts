@@ -1,0 +1,17 @@
+{
+	"arrowParens": "avoid",
+	"jsxBracketSameLine": true,
+	"jsxSingleQuote": true,
+	"overrides": [
+		{
+			"files": ["*.yml"],
+			"options": {
+				"tabWidth": 2
+			}
+		}
+	],
+	"singleQuote": true,
+	"tabWidth": 4,
+	"trailingComma": "none",
+	"useTabs": true
+}
