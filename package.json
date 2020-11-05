@@ -21,6 +21,9 @@
 		"lint": "prettier -wu \"**/*\" && sort-package-json",
 		"start": "ts-node-script src/index"
 	},
+	"pre-commit": [
+		"lint"
+	],
 	"dependencies": {
 		"canvas": "^2.6.1",
 		"colors": "^1.4.0",
@@ -37,8 +40,5 @@
 		"sort-package-json": "^1.46.1",
 		"ts-node": "^9.0.0",
 		"typescript": "^4.0.5"
-	},
-	"pre-commit": [
-		"lint"
-	]
+	}
 }
