@@ -1,7 +1,3 @@
 {
-	"conventionalCommits.scopes": [
-		"image",
-		"light",
-		"npm"
-	]
+	"conventionalCommits.scopes": ["image", "light", "npm"]
 }
