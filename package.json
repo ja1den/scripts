@@ -18,7 +18,7 @@
 		"chmod": "chmod 744 $(find scripts -type f)",
 		"postinstall": "husky install",
 		"lint": "prettier -wu \"**/*\" && sort-package-json",
-		"rimraf": "rm -rf build",
+		"clean": "rm -rf build",
 		"start": "ts-node-script src/index"
 	},
 	"husky": {
