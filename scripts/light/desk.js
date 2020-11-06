@@ -5,12 +5,9 @@ require('colors');
 
 const Lifx = require('node-lifx-lan');
 
-// Variables
-let desk = null;
-
 // Main
 async function main() {
-	desk = await Lifx.createDevice({
+	const desk = await Lifx.createDevice({
 		ip: '192.168.1.123',
 		mac: 'D0:73:D5:29:45:CB'
 	});
@@ -30,13 +27,7 @@ async function main() {
 	});
 
 	console.log('#7D0080'.magenta + ' - ' + '#33FF00'.green);
+
+	await Lifx.destroy();
 }
 main();
-
-// Handle Signals
-['SIGINT', 'SIGTERM', 'SIGUSR2'].forEach(signal =>
-	process.once(signal, async function () {
-		await desk.deviceSetPower({ level: 0 });
-		await Lifx.destroy();
-	})
-);
