@@ -17,7 +17,6 @@
 	"scripts": {
 		"chmod": "chmod 744 $(find scripts -type f)",
 		"clean": "rm -rf build",
-		"postinstall": "husky install",
 		"lint": "prettier -wu \"**/*\" && sort-package-json",
 		"start": "ts-node-script src/index"
 	},
