@@ -21,7 +21,7 @@ c.fillRect(0, 0, w, h);
 // Myriad
 c.strokeStyle = '#FFF';
 
-c.lineCap = 'round';
+c.lineJoin = c.lineCap = 'round';
 c.lineWidth = 40;
 
 c.beginPath();
@@ -37,15 +37,7 @@ c.beginPath();
 
 c.moveTo(w / 2, h / 2 + 100);
 c.lineTo(w / 2 + 200, h / 2 - 100);
-
-c.stroke();
-
-c.closePath();
-
-c.beginPath();
-
-c.moveTo(w / 2 + 200, h / 2 + 100);
-c.lineTo(w / 2 + 200, h / 2 - 100);
+c.lineTo(w / 2 + 200, h / 2 + 100);
 
 c.stroke();
 
