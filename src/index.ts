@@ -18,7 +18,7 @@ async function chooseAction(directory: string) {
 	const { action }: { action: string } = await prompts({
 		type: 'select',
 		name: 'action',
-		message: ' What type of script would you like to run?',
+		message: ' select a category',
 		choices: actions.map(action => ({
 			title: action.name,
 			value: action.name
@@ -37,7 +37,7 @@ async function chooseScript(action: string) {
 	const { script }: { script: string } = await prompts({
 		type: 'select',
 		name: 'script',
-		message: ' Which script would you like to run?',
+		message: ' select a script',
 		choices: scripts.map(script => ({
 			title: script.name,
 			value: script.name

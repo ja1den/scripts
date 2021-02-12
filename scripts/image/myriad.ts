@@ -9,14 +9,14 @@ import { resolve } from 'path';
 import { createCanvas } from 'canvas';
 
 // Image
-const [w, h] = [1080, 1080];
+const size = { x: 1080, y: 1080 };
 
-const canvas = createCanvas(w, h);
+const canvas = createCanvas(size.x, size.y);
 const c = canvas.getContext('2d');
 
 // Background
 c.fillStyle = '#111';
-c.fillRect(0, 0, w, h);
+c.fillRect(0, 0, size.x, size.y);
 
 // Myriad
 c.strokeStyle = '#FFF';
@@ -26,8 +26,8 @@ c.lineWidth = 40;
 
 c.beginPath();
 
-c.moveTo(w / 2 - 200, h / 2 + 100);
-c.lineTo(w / 2, h / 2 - 100);
+c.moveTo(size.x / 2 - 200, size.y / 2 + 100);
+c.lineTo(size.x / 2, size.y / 2 - 100);
 
 c.stroke();
 
@@ -35,9 +35,9 @@ c.closePath();
 
 c.beginPath();
 
-c.moveTo(w / 2, h / 2 + 100);
-c.lineTo(w / 2 + 200, h / 2 - 100);
-c.lineTo(w / 2 + 200, h / 2 + 100);
+c.moveTo(size.x / 2, size.y / 2 + 100);
+c.lineTo(size.x / 2 + 200, size.y / 2 - 100);
+c.lineTo(size.x / 2 + 200, size.y / 2 + 100);
 
 c.stroke();
 
