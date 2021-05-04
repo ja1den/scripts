@@ -17,12 +17,12 @@ async function main() {
 	if (level === 0) {
 		await desk.multiZoneSetColorZones({
 			start: 0,
-			end: 7,
+			end: 8,
 			color: { css: '#7D0080', brightness: 0.25 }
 		});
 
 		await desk.multiZoneSetColorZones({
-			start: 8,
+			start: 9,
 			end: 15,
 			color: { css: '#33FF00', brightness: 0.45 }
 		});
