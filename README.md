@@ -1,6 +1,6 @@
 # Scripts
 
-> A collection of useful scripts.
+> My scripts and other utilities.
 
 ## Introduction
 
@@ -33,7 +33,7 @@ Every script must begin with a shebang.
 
 ---
 
-You'll also need permission to execute the file (`744`).
+The execute permission must be set on each script (`744`).
 
 ```sh
 npm run chmod
