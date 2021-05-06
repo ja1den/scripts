@@ -1,17 +1,17 @@
 // Import
-import 'colors';
-
-import { readdirSync } from 'fs';
-import { resolve } from 'path';
+import path from 'path';
+import fs from 'fs';
 
 import parseArgs from 'minimist';
 import prompts from 'prompts';
 
 import { spawn } from 'child_process';
 
+import 'colors';
+
 // Choose Action
 async function chooseAction(directory: string) {
-	const actions = readdirSync(directory, {
+	const actions = fs.readdirSync(directory, {
 		withFileTypes: true
 	}).filter(dirent => dirent.isDirectory());
 
@@ -30,7 +30,7 @@ async function chooseAction(directory: string) {
 
 // Choose Script
 async function chooseScript(action: string) {
-	const scripts = readdirSync(resolve(__dirname, '../scripts', action), {
+	const scripts = fs.readdirSync(path.resolve(__dirname, '../scripts', action), {
 		withFileTypes: true
 	}).filter(dirent => !dirent.isDirectory());
 
@@ -68,12 +68,12 @@ async function main() {
 		action = args._[0];
 		script = args._[1];
 	} else {
-		action = await chooseAction(resolve(__dirname, '../scripts'));
+		action = await chooseAction(path.resolve(__dirname, '../scripts'));
 		script = await chooseScript(action);
 
 		console.log();
 	}
 
-	spawnScript(resolve(__dirname, '../scripts', action, script));
+	spawnScript(path.resolve(__dirname, '../scripts', action, script));
 }
 main();

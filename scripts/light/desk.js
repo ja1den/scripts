@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 // Import
-require('colors');
-
 const Lifx = require('node-lifx-lan');
+
+require('colors');
 
 // Main
 async function main() {

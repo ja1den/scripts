@@ -1,12 +1,12 @@
 #!/usr/bin/env ts-node
 
 // Import
-import 'colors';
-
 import { createWriteStream, existsSync, mkdirSync } from 'fs';
 import { resolve } from 'path';
 
 import { createCanvas } from 'canvas';
+
+import 'colors';
 
 // Image
 const size = { x: 1080, y: 1080 };
