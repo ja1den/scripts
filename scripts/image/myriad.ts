@@ -1,5 +1,3 @@
-#!/usr/bin/env ts-node
-
 // Import
 import { createWriteStream, existsSync, mkdirSync } from 'fs';
 import { resolve } from 'path';

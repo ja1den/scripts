@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // Import
 const Lifx = require('node-lifx-lan');
 
