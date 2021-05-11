@@ -8,8 +8,8 @@ import 'colors';
 
 // Commands
 const commands: Record<string, [string, string]> = {
-	'm': ['myriad icon', 'ts-node-script image/myriad.ts'],
-	'd': ['desk light', 'node light/desk.js']
+	'm': ['Myriad Icon', 'ts-node-script image/myriad.ts'],
+	'd': ['Desk Light', 'node light/desk.js']
 }
 
 // Spawn Script
@@ -30,10 +30,13 @@ async function main() {
 	// Interactive
 	if (option === undefined) {
 		// Log
-		console.log('select an option:\n');
+		console.log('Select an option:'.gray);
+		console.log('');
 
 		// Print Options
-		Object.entries(commands).forEach(entry => console.log(entry[0] + '	' + entry[1][0]));
+		Object.entries(commands).forEach(entry => {
+			console.log(entry[1][0].green + ' ' + '.'.repeat(28 - entry[1][0].length - 1).gray + (' [' + entry[0] + ']').cyan);
+		});
 
 		// Log
 		console.log('');
@@ -49,6 +52,11 @@ async function main() {
 
 		// Log
 		console.log('');
+	}
+
+	// Script Exists
+	if (commands[option]?.[1] === undefined) {
+		return console.error(('option \'' + option + '\' not found').red);
 	}
 
 	// Spawn Script
