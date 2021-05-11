@@ -6,20 +6,10 @@ import readline from 'readline';
 
 import 'colors';
 
-// Commands
-const commands: Record<string, [string, string]> = {
+// Scripts
+const scripts: Record<string, [string, string]> = {
 	'm': ['Myriad Icon', 'ts-node-script image/myriad.ts'],
 	'd': ['Desk Light', 'node light/desk.js']
-}
-
-// Spawn Script
-async function spawnScript(script: string) {
-	const child = child_process.spawn(script, { cwd: path.resolve(__dirname, '..', 'scripts'), shell: true });
-
-	child.stdout.on('data', data => process.stdout.write(data.toString()));
-	child.stderr.on('data', data => process.stderr.write(data.toString()));
-
-	child.on('error', err => console.error(err.message.red));
 }
 
 // Main
@@ -34,7 +24,7 @@ async function main() {
 		console.log('');
 
 		// Print Options
-		Object.entries(commands).forEach(entry => {
+		Object.entries(scripts).forEach(entry => {
 			console.log(entry[1][0].green + ' ' + '.'.repeat(28 - entry[1][0].length - 1).gray + (' [' + entry[0] + ']').cyan);
 		});
 
@@ -55,11 +45,16 @@ async function main() {
 	}
 
 	// Script Exists
-	if (commands[option]?.[1] === undefined) {
+	if (scripts[option]?.[1] === undefined) {
 		return console.error(('option \'' + option + '\' not found').red);
 	}
 
 	// Spawn Script
-	spawnScript(commands[option][1]);
+	const child = child_process.spawn(scripts[option][1], { cwd: path.resolve(__dirname, '..', 'scripts'), shell: true });
+
+	child.stdout.on('data', data => process.stdout.write(data.toString()));
+	child.stderr.on('data', data => process.stderr.write(data.toString()));
+
+	child.on('error', err => console.error(err.message.red));
 }
 main();
