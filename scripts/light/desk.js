@@ -10,7 +10,10 @@ async function main() {
 		mac: 'D0:73:D5:29:45:CB'
 	});
 
-	const { level } = await desk.deviceGetPower();
+	const { level } = await desk.deviceGetPower().catch(err => {
+		console.error(err.toString().red);
+		process.exit();
+	});
 
 	if (level === 0) {
 		await desk.multiZoneSetColorZones({
